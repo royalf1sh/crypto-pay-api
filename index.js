@@ -74,14 +74,12 @@ module.exports = class CryptoPayApi {
 
   async getExchangeRates(query) {
     return await this.#apiRequest({
-      query,
       path: this.#endpoints().getExchangeRates
     })
   }
 
   async getCurrencies(query) {
     return await this.#apiRequest({
-      query,
       path: this.#endpoints().getCurrencies
     })
   }
