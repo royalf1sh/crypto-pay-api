@@ -1,6 +1,6 @@
 {
   "name": "@royalf1sh/crypto-pay-api",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,10 @@
     "crypto",
     "exchage"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/royalf1sh/crypto-pay-api.git"
+  },
   "author": "royalf1sh",
   "license": "MIT"
 }

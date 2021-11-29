@@ -3,8 +3,6 @@ const { httpRequest, queryEncode } = require('./utils.js')
 module.exports = class CryptoPayApi {
   constructor(init) {
     this.url = init.url
-    // this.token = init.token
-    // this.path = `/app${this.token}`
     this.path = `/app${init.token}`
   }
 
