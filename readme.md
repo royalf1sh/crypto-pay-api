@@ -32,8 +32,8 @@ const myCryptoApp = new CryptoPayApi({
 
 ## Methods
 
-> _The response contains an object, which always has a Boolean field ok. If ok equals true, the request was successful, and the result of the query can be found in the result field. In case of an unsuccessful request, ok equals false, and the error is explained in the error field (e.g. PARAM_SHORT_NAME_REQUIRED)._
-
+> The response contains an object, which always has a Boolean field `ok`. If `ok` equals `true`, the request was successful, and the result of the query can be found in the `result` field. In case of an unsuccessful request, `ok` equals `false`, and the error is explained in the `error` field (e.g. PARAM_SHORT_NAME_REQUIRED).
+`
 ### getMe
 
 A simple method for testing your app's authentication token. Requires no parameters. Returns basic information about the app.
