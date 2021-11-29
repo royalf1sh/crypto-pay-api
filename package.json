@@ -1,0 +1,17 @@
+{
+  "name": "@royalf1sh/crypto-pay-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ton",
+    "btc",
+    "crypto",
+    "exchage"
+  ],
+  "author": "royalf1sh",
+  "license": "MIT"
+}
