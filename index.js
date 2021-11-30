@@ -19,7 +19,7 @@ module.exports = class CryptoPayApi {
     }
   }
 
-  async #apiRequest(req) {
+  #apiRequest(req) {
     let encodedQuery
     if (req.query) {
       encodedQuery = queryEncode(req.query)
