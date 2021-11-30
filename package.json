@@ -1,6 +1,6 @@
 {
   "name": "@royalf1sh/crypto-pay-api",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
