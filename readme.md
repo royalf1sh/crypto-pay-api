@@ -6,7 +6,7 @@ Crypto Pay is a payment system based on <a target="_blank" href="http://t.me/Cry
 
 #### Installation
 
-First, you need to create your application and get an API token. Open <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a> or <a target="_blank" href="http://t.me/CryptoTestnetBot">@CryptoTestnetBot</a> (for testnet), send a command /pay to create a new app and get API Token. Than install npm
+First, you need to create your application and get an API token. Open <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a> or <a target="_blank" href="http://t.me/CryptoTestnetBot">@CryptoTestnetBot</a> (for testnet), send a command `/pay` to create a new app and get API Token. Than install npm
 
 ```
 npm i @royalf1sh/crypto-pay-api
