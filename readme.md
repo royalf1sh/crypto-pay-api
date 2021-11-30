@@ -37,12 +37,19 @@ const myCryptoApp = new CryptoPayApi({
 > The response is promise wich contains an object, which always has a Boolean field `ok`. If `ok` equals `true`, the request was successful, and the result of the query can be found in the `result` field. In case of an unsuccessful request, `ok` equals `false`, and the error is explained in the `error` field (e.g. PARAM_SHORT_NAME_REQUIRED).
 
 [getMe](#getMe)
+
 [createInvoice](#createinvoice)
+
 [getInvoices](#getinvoices)
+
 [getPayments](#getpayments)
+
 [confirmPayment](#confirmpayment)
+
 [getBalance](#getbalance)
+
 [getExchangeRates](#getexchangeRates)
+
 [getCurrencies](#getcurrencies)
 
 ### getMe
