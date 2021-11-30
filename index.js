@@ -24,62 +24,62 @@ module.exports = class CryptoPayApi {
     if (req.query) {
       encodedQuery = queryEncode(req.query)
     }
-    return await httpRequest({
+    return httpRequest({
       host: this.url,
       path: req.path,
       query: encodedQuery
     })
   }
 
-  async getMe() {
-    return await this.#apiRequest({
+  getMe() {
+    return this.#apiRequest({
       path: this.#endpoints().getMe
     })
   }
 
-  async createInvoice(query) {
+  createInvoice(query) {
     if (!query) throw new Error('No invoce query params')
-    return await this.#apiRequest({
+    return this.#apiRequest({
       query,
       path: this.#endpoints().createInvoice
     })
   }
 
-  async confirmPayment(query) {
-    return await this.#apiRequest({
+  confirmPayment(query) {
+    return this.#apiRequest({
       query,
       path: this.#endpoints().confirmPayment
     })
   }
 
-  async getInvoices(query) {
-    return await this.#apiRequest({
+  getInvoices(query) {
+    return this.#apiRequest({
       query,
       path: this.#endpoints().getInvoices
     })
   }
 
-  async getPayments(query) {
-    return await this.#apiRequest({
+  getPayments(query) {
+    return this.#apiRequest({
       query,
       path: this.#endpoints().getPayments
     })
   }
 
-  async getBalance() {
-    return await this.#apiRequest({
+  getBalance() {
+    return this.#apiRequest({
       path: this.#endpoints().getBalance
     })
   }
 
-  async getExchangeRates() {
-    return await this.#apiRequest({
+  getExchangeRates() {
+    return this.#apiRequest({
       path: this.#endpoints().getExchangeRates
     })
   }
 
-  async getCurrencies() {
-    return await this.#apiRequest({
+  getCurrencies() {
+    return this.#apiRequest({
       path: this.#endpoints().getCurrencies
     })
   }

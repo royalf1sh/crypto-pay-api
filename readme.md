@@ -1,5 +1,7 @@
 # Crypto Pay API
 
+### The most lightweight package without dependencies
+
 Crypto Pay is a payment system based on <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a>, which allows you to accept payments in cryptocurrency using the API.
 
 ---
@@ -32,8 +34,17 @@ const myCryptoApp = new CryptoPayApi({
 
 ## Methods
 
-> The response contains an object, which always has a Boolean field `ok`. If `ok` equals `true`, the request was successful, and the result of the query can be found in the `result` field. In case of an unsuccessful request, `ok` equals `false`, and the error is explained in the `error` field (e.g. PARAM_SHORT_NAME_REQUIRED).
-`
+> The response is promise wich contains an object, which always has a Boolean field `ok`. If `ok` equals `true`, the request was successful, and the result of the query can be found in the `result` field. In case of an unsuccessful request, `ok` equals `false`, and the error is explained in the `error` field (e.g. PARAM_SHORT_NAME_REQUIRED).
+
+[getMe](#getMe)
+[createInvoice](#createinvoice)
+[getInvoices](#getinvoices)
+[getPayments](#getpayments)
+[confirmPayment](#confirmpayment)
+[getBalance](#getbalance)
+[getExchangeRates](#getexchangeRates)
+[getCurrencies](#getcurrencies)
+
 ### getMe
 
 A simple method for testing your app's authentication token. Requires no parameters. Returns basic information about the app.
