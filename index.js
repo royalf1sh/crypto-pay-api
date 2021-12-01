@@ -3,19 +3,19 @@ const { httpRequest, queryEncode } = require('./utils.js')
 module.exports = class CryptoPayApi {
   constructor(init) {
     this.url = init.url
-    this.path = `/app${init.token}`
+    this.token = init.token
   }
 
   #endpoints() {
     return {
-      getMe: `${this.path}/getMe`,
-      createInvoice: `${this.path}/createInvoice`,
-      getInvoices: `${this.path}/getInvoices`,
-      getPayments: `${this.path}/getPayments`,
-      confirmPayment: `${this.path}/confirmPayment`,
-      getBalance: `${this.path}/getBalance`,
-      getExchangeRates: `${this.path}/getExchangeRates`,
-      getCurrencies: `${this.path}/getCurrencies`
+      getMe: `/getMe`,
+      createInvoice: `/createInvoice`,
+      getInvoices: `/getInvoices`,
+      getPayments: `/getPayments`,
+      confirmPayment: `/confirmPayment`,
+      getBalance: `/getBalance`,
+      getExchangeRates: `/getExchangeRates`,
+      getCurrencies: `/getCurrencies`
     }
   }
 
@@ -27,7 +27,8 @@ module.exports = class CryptoPayApi {
     return httpRequest({
       host: this.url,
       path: req.path,
-      query: encodedQuery
+      query: encodedQuery,
+      token: this.token
     })
   }
 

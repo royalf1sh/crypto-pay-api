@@ -4,14 +4,19 @@ const httpRequest = reqOptions => {
   return new Promise((resolve, reject) => {
     options = {
       host: reqOptions.host,
-      path: reqOptions.path,
+      path: `/api${reqOptions.path}`,
       port: 443,
-      method: 'GET'
+      method: 'GET',
+      headers: {
+        'Crypto-Pay-API-Token': reqOptions.token
+      }
     }
     if (reqOptions.query) {
-      options.path += `${options.path}?${reqOptions.query}`
+      options.path = `${options.path}?${reqOptions.query}`
     }
+    console.log(options)
     const req = https.request(options, res => {
+      console.log(options)
       // API don't return json res if URI string is more then webserver limit
       if (res.statusCode === 414) {
         reject(new Error('statusCode=' + res.statusCode + ' URI Too Large'))

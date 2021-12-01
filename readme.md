@@ -4,11 +4,21 @@
 
 Crypto Pay is a payment system based on <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a>, which allows you to accept payments in cryptocurrency using the API.
 
+# Tips
+
+Please, use `Big.js` or another lib to work with big numbers.
+
+## Support
+
+Check the official API docs <a target="_blank" href="https://telegra.ph/Crypto-Pay-API-11-25">https://telegra.ph/Crypto-Pay-API-11-25</a>
+
+Message to <a target="_blank" href="http://t.me/CryptoSupportBot">@CryptoSupportBot</a> If you have a question about API. Or join to official chats <a target="_blank" href="http://t.me/CryptoBotEnglish">@CryptoBotEnglish</a> or <a target="_blank" href="http://t.me/CryptoBotRussian">@CryptoBotRussian</a> for Russian developers.
+
 ---
 
-#### Installation
+# Installation
 
-First, you need to create your application and get an API token. Open <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a> or <a target="_blank" href="http://t.me/CryptoTestnetBot">@CryptoTestnetBot</a> (for testnet), send a command `/pay` to create a new app and get API Token. Than install npm
+First, you need to create your application and get an API token. Open <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a> or <a target="_blank" href="http://t.me/CryptoTestnetBot">@CryptoTestnetBot</a> (for testnet), send a command `/pay` to create a new app and get API Token.
 
 ```
 npm i @royalf1sh/crypto-pay-api
@@ -16,7 +26,7 @@ npm i @royalf1sh/crypto-pay-api
 
 ---
 
-## Usage
+# Usage
 
 ```javascript
 const CryptoPayApi = require('@royalf1sh/crypto-pay-api')
@@ -32,27 +42,29 @@ const myCryptoApp = new CryptoPayApi({
 
 ---
 
-## Methods
+### Methods
 
-> The response is promise wich contains an object, which always has a Boolean field `ok`. If `ok` equals `true`, the request was successful, and the result of the query can be found in the `result` field. In case of an unsuccessful request, `ok` equals `false`, and the error is explained in the `error` field (e.g. PARAM_SHORT_NAME_REQUIRED).
+> All methods return a promise wich contains an object, which always has a Boolean field `ok`. If `ok` equals `true`, the request was successful, and the result of the query can be found in the `result` field. In case of an unsuccessful request, `ok` equals `false`, and the error is explained in the `error` field (e.g. PARAM_SHORT_NAME_REQUIRED).
 
-[getMe](#getMe)
+[getMe](#getme)
 
 [createInvoice](#createinvoice)
 
 [getInvoices](#getinvoices)
 
-[getPayments](#getpayments)
-
-[confirmPayment](#confirmpayment)
-
 [getBalance](#getbalance)
 
-[getExchangeRates](#getexchangeRates)
+[getExchangeRates](#getexchangerates)
 
 [getCurrencies](#getcurrencies)
 
-### getMe
+---
+
+[Webhooks for notifications about payments](#webhooks)
+
+---
+
+## getMe
 
 A simple method for testing your app's authentication token. Requires no parameters. Returns basic information about the app.
 
@@ -89,7 +101,7 @@ console.log(me)
 
 ---
 
-### createInvoice
+## createInvoice
 
 Use this method to create a new invoice. Returns object of created invoice.
 Requires object with invoice options as argument.
@@ -174,7 +186,7 @@ console.log(invoice)
 
 ---
 
-### getInvoices
+## getInvoices
 
 Use this method to get invoices of your app. On success, the returns array of invoices. Optional object with options as argument
 
@@ -241,109 +253,7 @@ console.log(invoices)
 
 ---
 
-### getPayments
-
-Use this method to get paid and unconfirmed invoices of your app. On success, the returns array of paid and unconfirmed invoices. Optional object with options as argument
-
-- **offset (Number)** _Optional_ - Offset needed to return a specific subset of invoices. Default `0`.
-- **count (Number)** _Optional_ - Number of invoices to return. Default `100`, max `1000`.
-
-#### Example
-
-```js
-const payments = await myCryptoPay.getPayments()
-console.log(payments)
-```
-
-<details>
-  <summary>success</summary>
-  
-```js
-{ 
-  ok: true,
-  result: { count: 1, 
-  items: [ 
-   {
-     invoice_id: 1419,
-     status: 'paid',
-     hash: 'IVlAyKPZDMoR',
-     asset: 'TON',
-     amount: '0.05',
-     pay_url: 'https://t.me/CryptoTestnetBot?start=IVlAyKPZDMoR',
-     description: 'Duis felis ligula, tincidunt vel bibendum vitae',
-     created_at: '2021-11-29T20:54:13.507Z',
-     paid_at: '2021-11-29T21:57:17.816Z',
-     allow_comments: true,
-     allow_anonymous: true,
-     paid_anonymously: false,
-     payload: 'Lorem ipsum dolor ',
-     paid_btn_name: 'viewItem',
-     paid_btn_url: 'https://ton.org',
-     is_confirmed: false
-    }
-   ] 
- } 
-}
-```
-
-</details>
-
----
-
-### confirmPayment
-
-Use this method to confirm paid invoice of your app. On success, the return confirmed invoice. Required object with Invoice ID as argument
-
-- **invoice_id (Integer)** _Required_ - Invoice ID you want to confirm.
-
-#### Example
-
-```js
-const confirmPayment = await myCryptoPay.confirmPayment({
-  invoice_id: 1234
-})
-console.log(confirmPayment)
-```
-
-<details>
-  <summary>success</summary>
-  
-```js
-{
-  ok: true,
-  result: {
-    invoice_id: 1419,
-    status: 'paid',
-    hash: 'IVlAyKPZDMoR',
-    asset: 'TON',
-    amount: '0.05',
-    pay_url: 'https://t.me/CryptoTestnetBot?start=IVlAyKPZDMoR',
-    description: 'Duis felis ligula, tincidunt vel bibendum vitae',
-    created_at: '2021-11-29T20:54:13.507Z',
-    paid_at: '2021-11-29T21:57:17.816Z',
-    allow_comments: true,
-    allow_anonymous: true,
-    payload: 'Lorem ipsum dolor ',
-    paid_btn_name: 'viewItem',
-    paid_btn_url: 'https://ton.org',
-    is_confirmed: true,
-    confirmed_at: '2021-11-29T22:07:03.251Z'
-  }
-}
-```
-
-</details>
-<details>
-  <summary>error</summary>
-  
-```js
-{ ok: false, error: { code: 400, name: 'INVOICE_NOT_FOUND' } }
-```
-</details>
-
----
-
-### getBalance
+## getBalance
 
 Use this method to get balance of your app. Returns array of assets
 
@@ -376,7 +286,7 @@ console.log(balance)
 
 ---
 
-### getExchangeRates
+## getExchangeRates
 
 Use this method to get exchange rates of supported currencies. Returns array of currencies
 
@@ -653,7 +563,7 @@ console.log(exchangeRates)
 
 ---
 
-### getCurrencies
+## getCurrencies
 
 Use this method to get supported currencies. Returns array of currencies
 
@@ -803,3 +713,19 @@ console.log(currencies)
 ```
 
 </details>
+
+## Webhooks
+
+Use Webhooks to get updates for the app, will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request, it will give up after a reasonable amount of attempts.
+
+If you'd like to make sure that the Webhook request comes from Crypto Pay, recommend using a secret path in the URL, e.g. `https://www.example.com/<token>`. Since nobody else knows your bot's token, you can be pretty sure it's us.
+
+Webhooks will send may at least one time.
+
+#### How to enable Webhooks?
+
+Open <a target="_blank" href="http://t.me/CryptoBot">@CryptoBot</a> or <a target="_blank" href="http://t.me/CryptoTestnetBot">@CryptoTestnetBot</a> (for testnet), open your app and tap `Webhooks` section to set `Webhooks URL`.
+
+#### Webhooks Updates
+
+- **invoice_paid** The update send when an invoice was paid by the user. The object includes paid invoice.
