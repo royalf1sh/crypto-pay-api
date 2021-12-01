@@ -716,9 +716,9 @@ console.log(currencies)
 
 ## Webhooks
 
-Use Webhooks to get updates for the app, will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request, it will give up after a reasonable amount of attempts.
+Use Webhooks to get updates for the app, it will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request, it will give up after a reasonable amount of attempts.
 
-If you'd like to make sure that the Webhook request comes from Crypto Pay, recommend using a secret path in the URL, e.g. `https://www.example.com/<token>`. Since nobody else knows your bot's token, you can be pretty sure it's us.
+If you'd like to make sure that the Webhook request comes from Crypto Pay, recommend using a secret path in the URL, e.g. `https://www.example.com/<token>`. Since nobody else knows your bot's token, you can be pretty sure it's from cryptopay.
 
 Webhooks will send may at least one time.
 
