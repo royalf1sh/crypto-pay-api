@@ -107,7 +107,7 @@ Use this method to create a new invoice. Returns object of created invoice.
 Requires object with invoice options as argument.
 
 - **asset (String)** - Currency code. Supported assets: BTC, TON, ETH (only testnet), USDT, USDC, BUSD
-- **amount (Float)**
+- **amount (String)**
   Amount of the invoice in float. For example: `125.50`
 - **description (String)** _Optional_ - Description of the invoice. Up to 1024 symbols
 - **paid_btn_name (String)** _Optional_ - Paid button name. This button will be shown when your invoice was paid. Default is `callback` if you use only `paid_btn_url`
